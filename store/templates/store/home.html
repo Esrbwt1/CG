@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeGenesis Store - Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .product { border: 1px solid #ccc; padding: 10px; margin: 10px; display: inline-block; width: 200px; }
+        .product img { width: 100%; }
+        .product h2 { font-size: 1.2em; margin: 0.5em 0; }
+        .product p { font-size: 0.9em; }
+    </style>
+</head>
+<body>
+    <h1>Welcome to CodeGenesis Store</h1>
+    <div class="products">
+        {% for product in products %}
+            <div class="product">
+                <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                <h2>{{ product.name }}</h2>
+                <p>{{ product.description }}</p>
+                <p><strong>{{ product.price }}</strong></p>
+                <!-- Instead of a payment button, we use a Request Quote CTA -->
+                <button onclick="alert('Request a quote for {{ product.name }}')">Request Quote</button>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
